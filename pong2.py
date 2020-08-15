@@ -1,11 +1,50 @@
+# Ventana inicio
 import turtle
 
-# Ventana
-wn = turtle.Screen()
-wn.title("Pong by Mau")
-wn.bgcolor("black")
-wn.setup(width= 800, height=600)
-wn.tracer(0)
+# Ventana inicio
+win1 = turtle.Screen()
+win1.title("Pong by Mau")
+win1.bgcolor("black")
+win1.bgpic("/Users/mauricioub/Documents/Github/Testpython1/pongimages/fondo2.png")
+win1.setup(width= 800, height=600)
+win1.tracer(0)
+
+tle = turtle.Turtle()
+tle.goto(0,0)
+tle.color("white")
+tle.hideturtle()
+tle.penup()
+tle.shapesize(stretch_len=200, stretch_wid=200)
+tle.write("Bienvenido al PONG", align="center", font=("Courier", 50, "normal"))
+
+msg = turtle.Turtle()
+msg.goto(0,-250)
+msg.color("white")
+msg.hideturtle()
+msg.penup()
+msg.shapesize(stretch_len=200, stretch_wid=200)
+msg.clear()   
+msg.write("Presione START para comenzar" , align="center", font=("Courier", 30, "normal"))
+
+def start_press():
+    start = msg.xcor()
+    start = start + 0.0001
+    msg.setx(start)
+
+win1.listen()
+win1.onkeypress(start_press,"b")
+
+while msg.xcor() == 0:
+    win1.update()
+else:
+    win1.clear()
+# Ventana 2
+win2 = turtle.Screen()
+win2.title("Pong by Mau")
+win2.bgcolor("black")
+win2.setup(width= 800, height=600)
+win2.tracer(0)
+
 # Marcador
 mark1 = 0
 mark2 = 0
@@ -29,7 +68,7 @@ player2.goto(350,0)
 
 # Ball
 ball = turtle.Turtle()
-ball.speed(10)
+# ball.speed(10)
 ball.shape("circle")
 ball.shapesize(stretch_len=1, stretch_wid=1)
 ball.color("white")
@@ -38,6 +77,7 @@ ball.goto(0,0)
 ball.dx = 3
 ball.dy = 3
 
+speedball = ball.speed(10)
 # Linea
 line = turtle.Turtle()
 line.color("white")
@@ -54,54 +94,54 @@ pen.goto(0,260)
 # Funciones
 def player1_up():
     y = player1.ycor()
-    y += 20
+    y = y + 20
     player1.sety(y)
 def player1_down():
     y = player1.ycor()
-    y -= 20
+    y = y - 20
     player1.sety(y)
 def player2_up():
     y = player2.ycor()
-    y += 20
+    y = y + 20
     player2.sety(y)
 def player2_down():
     y = player2.ycor()
-    y -= 20
+    y = y - 20
     player2.sety(y)
 
 # Teclado
-wn.listen()
-wn.onkeypress(player1_up,"w")
-wn.onkeypress(player1_down,"s")
-wn.onkeypress(player2_up,"Up")
-wn.onkeypress(player2_down,"Down")
+win2.listen()
+win2.onkeypress(player1_up,"w")
+win2.onkeypress(player1_down,"s")
+win2.onkeypress(player2_up,"Up")
+win2.onkeypress(player2_down,"Down")
 
 while True:
-    wn.update()
+    win2.update()
     ball.setx(ball.xcor() + ball.dx)
     ball.sety(ball.ycor() + ball.dy)
 
 # Bordes eje y
     if ball.ycor() > 290:
-        ball.dy *= -1
+        ball.dy = ball.dy * -1
     if ball.ycor() < -290:
-        ball.dy *= -1
+        ball.dy = ball.dy * -1
 # Bordes eje x
     if ball.xcor() > 390:
         ball.goto(0,0)
-        ball.dx *= -1
-        mark2 += 1
+        ball.dx = ball.dx * -1
+        mark2 = mark2 + 1
     if ball.xcor() < -390:
         ball.goto(0,0)
-        ball.dx *= -1    
-        mark1 += 1
+        ball.dx = ball.dx * -1    
+        mark1 = mark1 + 1
     if ((ball.xcor() > 340 and ball.xcor() < 350)
             and (ball.ycor() < player2.ycor() + 50 
             and ball.ycor() > player2.ycor()-50)):
-        ball.dx *= -1
+        ball.dx = ball.dx * -1
     if ((ball.xcor() < -340 and ball.xcor() > -350)
             and (ball.ycor() < player1.ycor()+50 
             and ball.ycor() > player1.ycor()-50)):
-        ball.dx *= -1
+        ball.dx = ball.dx * -1  
     pen.clear() 
     pen.write("Jugador 1: " + str(mark1)+ "         "+"Jugador 2: " + str(mark2), align="center", font=("Courier", 24, "normal"))
