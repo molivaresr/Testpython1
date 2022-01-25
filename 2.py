@@ -11,7 +11,7 @@ import math
 # y muestre por pantalla el capital obtenido en la inversión.
 money = int(input("Ingrese la cantidad a invertir: "))
 ti = int(input("Ingrese la tasa anual de interés %: "))
-years = int(input("Ingrese los añoos que desea mantener su depósito: "))
+years = int(input("Ingrese los añooos que desea mantener su depósito: "))
 save = round(money * (ti/100 + 1)** years,2)
 print("El capital obtenido es: " + str(save)+ " €")
 # Ejercicio 12
