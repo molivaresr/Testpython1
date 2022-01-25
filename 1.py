@@ -7,7 +7,7 @@ y = 5 # x is now of type str
 print ('Hola Mundo')
 print(x + y)
 # Ejercicio 2
-a = "¡Hola "
+a = "¡Holaaaaaa "
 print(a)
 # Ejercicio 3
 b = input("Introduce tu nombre")
