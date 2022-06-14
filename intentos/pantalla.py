@@ -5,7 +5,7 @@ import turtle
 win1 = turtle.Screen()
 win1.title("Pong by Mau")
 win1.bgcolor("black")
-win1.bgpic("/Users/mauricioub/Documents/Github/Testpython1/pongimages/fondo2.png")
+win1.bgpic("./pongimages/fondo2.png")
 win1.setup(width= 800, height=600)
 win1.tracer(0)
 
@@ -24,7 +24,7 @@ msg.hideturtle()
 msg.penup()
 msg.shapesize(stretch_len=200, stretch_wid=200)
 msg.clear()   
-msg.write("Presione START para comenzar" , align="center", font=("Courier", 30, "normal"))
+msg.write("Presione ESPACIO para comenzar" , align="center", font=("Courier", 30, "normal"))
 
 def start_press():
     start = msg.xcor()
@@ -32,8 +32,7 @@ def start_press():
     msg.setx(start)
 
 win1.listen()
-win1.onkeypress(start_press,"b")
+win1.onkeypress(start_press,"space")
 
 while msg.xcor() == 0:
     win1.update()
-

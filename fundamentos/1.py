@@ -1,4 +1,5 @@
 import math
+
 # NO LEER
 print(int(math.pow(3,3)))
 x = 4 # x is of type int
@@ -34,6 +35,18 @@ calculada de la siguiente forma:"""
 # Opción A
 # c = input("Introduce un número: ")
 # print((int(c)*(int(c)+1))/2)
+
+# Opción B
+
+# numero= int(input("Introduce un número: "))
+# if numero < 0:
+#     numero  = numero * -1
+#     suma = -1 * ((numero  * (numero + 1))/2)
+    
+# else :
+#     suma = (numero  * (numero + 1))/2
+# print(f"La sumas es : {suma}")
+
 # Ejercicio 9
 # w = float(input("Indique su peso en Kg: "))
 # h = float(input("Iniduqe su estatura en Metros: "))
